@@ -1,0 +1,12 @@
+---
+- hosts: 3.91.203.94
+  become_user: ubuntu
+  tasks:
+
+  - name: Download jar file
+    get_url:
+      url: http://13.233.229.188:8081/repository/maven-releases/anil.jar
+      dest: /home/ubuntu/
+
+  - name: run jar file
+    shell: nohup java -jar anil.jar /tmp 2>> /dev/null >> /dev/null & 
